@@ -1,4 +1,5 @@
 class Treino:
+    #Contrutor Classe TREINO
     def __init__(self, nome, data, distancia_percorrida, tempo, localizacao, condicoes_climaticas):
         self.nome = nome
         self.data = data
