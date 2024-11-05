@@ -48,3 +48,16 @@ def atualizar_meta(nome_meta, novos_dados):
         print(f"Erro: Arquivo 'metas.csv' não foi encontrado")
     except Exception as e:
         print(f"Ocorreu um erro inesperado: {e}")
+
+# Print Metas Função
+def mostrar_metas():
+    # Tratamento de ERRO
+    try:
+        with open('data/metas.csv', mode='r') as csvmetas:
+            reader = csv.reader(csvmetas)
+            
+            for linhas in reader:
+                print(linhas)
+    # Tratamento de ERRO
+    except FileNotFoundError:
+        print("Arquivo [metas.csv] não encontrado")

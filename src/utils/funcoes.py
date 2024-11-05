@@ -31,7 +31,7 @@ def perguntar_valores_adicionar():
         try:
             nome = input("Insira o nome do treino / competição: ")
             data = input("Insira a data do treino (DD/MM/AAAA): ")
-            distancia_percorrida = float(input("Insira a distância percorrida (em km): "))
+            distancia_percorrida = float(input("Insira a distância percorrida (em KM): "))
             tempo = input("Insira o tempo gasto (formato HH:MM:SS): ")
             localizacao = input("Insira a localização do treino: ")
             condicoes_climaticas = input("Descreva as condições climáticas: ")
@@ -50,6 +50,31 @@ def perguntar_valores_adicionar():
                 # Tratamento de ERRO
                 print("Por favor, preencha os campos corretamente")
         # Tratamento de ERRO
+        except ValueError:
+            print("Erro na entrada de dados. Por favor, insira os valores corretos.")
+        except Exception as e:
+            print(f"Ocorreu um ERRO: {e}")
+
+# Função para armazenar os valores para posteriormente usar no controlador adicionar_meta
+def perguntar_valores_meta_adicionar():
+    # Tratamento de Entrada
+    while True:
+        try:
+            nome = input("Insira o nome da meta: ")
+            distancia = float(input("Insira a distância desejada da meta (em KM): "))
+            tempo = input("Insira o tempo desejado para a meta: ")
+
+            # Dicionário para posteriormente ser usado como entrada nos paramêtros
+            if distancia >= 0 and nome and tempo:
+                return {
+                    "nome" : nome,
+                    "distancia" : distancia,
+                    "tempo" : tempo
+                }
+            #Tratamento de Erro
+            else:
+                print("Por favor, preencha os campos corretamente")
+        # Tratamento de Erro
         except ValueError:
             print("Erro na entrada de dados. Por favor, insira os valores corretos.")
         except Exception as e:
