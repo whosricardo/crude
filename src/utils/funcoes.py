@@ -7,7 +7,8 @@ def mostrar_menu():
     print(f"1 - Adicionar Treino")
     print(f"2 - Ler Treinos")
     print(f"3 - Atualizar Treino")
-    print(f"4 - Área de [Metas]")
+    print(f"4 - Deletar Treino")
+    print(f"5 - Área de [Metas]")
 
 # Função para mostrar menu metas
 def mostrar_menu_metas():
@@ -20,13 +21,13 @@ def mostrar_menu_metas():
 def pergunta_usuario():
     while True:
         try:
-            input_usuario = int(input("Insira um numero (1 - 4)"))
+            input_usuario = int(input("Insira um numero (1 - 5): "))
 
-            if 1 <=input_usuario <= 4:
+            if 1 <=input_usuario <= 5:
                 return input_usuario
             # Tratamento de ERRO
             else:
-                print("Insira um valor dentro de [1 - 4]")
+                print("Insira um valor dentro de [1 - 5]")
         # Tratamento de ERRO
         except ValueError:
             print("Por favor insira um [Número]")
