@@ -6,19 +6,27 @@ def convercao_int(valor):
 def mostrar_menu():
     print(f"1 - Adicionar Treino")
     print(f"2 - Ler Treinos")
-    print(f"3 - Atualizar Treinos")
+    print(f"3 - Atualizar Treino")
+    print(f"4 - Área de [Metas]")
 
+# Função para mostrar menu metas
+def mostrar_menu_metas():
+    print(f"1 - Adicionar Meta")
+    print(f"2 - Ler Metas")
+    print(f"3 - Atualizar Meta")
+    print(f"4 - Deletar Meta")
+    
 # Função para perguntar ao usuário
 def pergunta_usuario():
     while True:
         try:
-            input_usuario = int(input("Insira um numero (1 - 3)"))
+            input_usuario = int(input("Insira um numero (1 - 4)"))
 
             if 1 <=input_usuario <= 3:
                 return input_usuario
             # Tratamento de ERRO
             else:
-                print("Insira um valor dentro de [1 - 3]")
+                print("Insira um valor dentro de [1 - 4]")
         # Tratamento de ERRO
         except ValueError:
             print("Por favor insira um [Número]")
