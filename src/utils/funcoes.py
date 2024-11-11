@@ -55,6 +55,30 @@ def perguntar_valores_adicionar():
         except Exception as e:
             print(f"Ocorreu um ERRO: {e}")
 
+# Função para perguntar os novos valores para atualização
+def perguntar_valores_atualizar():
+    while True:
+        try:
+            nome = input("Insira o nome do treino que vai ser atualizado: ")
+            nome_novos = input("Insira o nome do treino / competição: ")
+            data_novos = input("Insira a data do treino (DD/MM/AAAA): ")
+            distancia_percorrida_novos = float(input("Insira a distância percorrida (em km): "))
+            tempo_novos = input("Insira o tempo gasto (formato HH:MM:SS): ")
+            localizacao_novos = input("Insira a localização do treino: ")
+            condicoes_climaticas_novos = input("Descreva as condições climáticas: ")
+
+            if data_novos and distancia_percorrida_novos >= 0 and nome_novos and tempo_novos and localizacao_novos and condicoes_climaticas_novos:
+                # Retorna o nome do treino a ser atualizado e uma lista com os novos dados
+                return nome, [nome_novos, data_novos, distancia_percorrida_novos, tempo_novos, localizacao_novos, condicoes_climaticas_novos]
+            # Tratamento de ERRO
+            else:
+                print("Por favor, preencha os campos corretamente")
+        # Tratamento de ERRO
+        except ValueError:
+            print("Erro na entrada de dados. Por favor, insira os valores corretos.")
+        except Exception as e:
+            print(f"Ocorreu um ERRO: {e}")
+
 # Função para armazenar os valores para posteriormente usar no controlador adicionar_meta
 def perguntar_valores_meta_adicionar():
     # Tratamento de Entrada
@@ -80,21 +104,18 @@ def perguntar_valores_meta_adicionar():
         except Exception as e:
             print(f"Ocorreu um ERRO: {e}")
 
-# Função para perguntar os novos valores para atualização
-def perguntar_valores_atualizar():
+def perguntar_valores_meta_atualizar():
+    # Tratamento de Entrada
     while True:
         try:
-            nome = input("Insira o nome do treino que vai ser atualizado: ")
-            nome_novos = input("Insira o nome do treino / competição: ")
-            data_novos = input("Insira a data do treino (DD/MM/AAAA): ")
-            distancia_percorrida_novos = float(input("Insira a distância percorrida (em km): "))
-            tempo_novos = input("Insira o tempo gasto (formato HH:MM:SS): ")
-            localizacao_novos = input("Insira a localização do treino: ")
-            condicoes_climaticas_novos = input("Descreva as condições climáticas: ")
+            nome = input("Insira o nome da meta que vai ser atualizada: ")
+            nome_novo = input("Insira o nome da meta: ")
+            distancia_novo = float(input("Insira a distância desejada da meta (em KM): "))
+            tempo_novo = input("Insira o tempo desejado para a meta: ")
 
-            if data_novos and distancia_percorrida_novos >= 0 and nome_novos and tempo_novos and localizacao_novos and condicoes_climaticas_novos:
-                # Retorna o nome do treino a ser atualizado e uma lista com os novos dados
-                return nome, [nome_novos, data_novos, distancia_percorrida_novos, tempo_novos, localizacao_novos, condicoes_climaticas_novos]
+            if distancia_novo >= 0 and nome_novo and tempo_novo:
+                # Retorna o nome do treino a ser atualizado e uma lista com os novos dados 
+                return nome, [nome_novo, distancia_novo, tempo_novo]
             # Tratamento de ERRO
             else:
                 print("Por favor, preencha os campos corretamente")
