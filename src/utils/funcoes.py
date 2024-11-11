@@ -15,14 +15,14 @@ def mostrar_menu_metas():
     print(f"2 - Ler Metas")
     print(f"3 - Atualizar Meta")
     print(f"4 - Deletar Meta")
-    
+
 # Função para perguntar ao usuário
 def pergunta_usuario():
     while True:
         try:
             input_usuario = int(input("Insira um numero (1 - 4)"))
 
-            if 1 <=input_usuario <= 3:
+            if 1 <=input_usuario <= 4:
                 return input_usuario
             # Tratamento de ERRO
             else:

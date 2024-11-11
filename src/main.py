@@ -1,8 +1,10 @@
+import os
 from utils.funcoes import *
 from controllers.treino_controller import adicionar_treino, ler_treinos, atualizar_treino
 from controllers.metas_controller import adicionar_meta, atualizar_meta, mostrar_metas
 
 def main():
+    os.system('cls' if os.name == 'nt' else 'clear')
     mostrar_menu()
     resposta_usuario = pergunta_usuario()
 
@@ -18,6 +20,8 @@ def main():
         atualizar_treino(nome_treino, novos_dados)
 
     elif resposta_usuario == 4:
+        os.system('cls' if os.name == 'nt' else 'clear')
+
         mostrar_menu_metas()
 
         resposta_usuario_metas = pergunta_usuario()
