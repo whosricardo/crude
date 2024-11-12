@@ -50,7 +50,7 @@ def atualizar_meta(nome_meta, novos_dados):
         print(f"Ocorreu um erro inesperado: {e}")
 
 # Função para deletar o Treino
-def deletar_treino(nome_meta):
+def deletar_meta(nome_meta):
     try:
         metas = [] # Cria uma lista que posteriromente será usada para sobrescrever os valores no arquivo
         metas_encontrado = False # Check para saber se o treino foi encontrado

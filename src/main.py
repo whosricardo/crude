@@ -1,7 +1,7 @@
 import os
 from utils.funcoes import *
 from controllers.treino_controller import adicionar_treino, ler_treinos, atualizar_treino, filtragem_distancia_tempo, deletar_treino
-from controllers.metas_controller import adicionar_meta, atualizar_meta, mostrar_metas 
+from controllers.metas_controller import adicionar_meta, atualizar_meta, mostrar_metas, deletar_meta
 
 def main():
     # Clear Console
@@ -59,7 +59,8 @@ def main():
 
         # Deletar Metas
         elif resposta_usuario_metas == 4:
-            print("Template")
+            nome_meta = perguntar_treino_meta_deletar()
+            deletar_meta(nome_meta)
 
     return True
 
