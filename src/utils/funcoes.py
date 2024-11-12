@@ -145,3 +145,27 @@ def pergunta_filtro():
             print("Por favor insira um número")
 
     return valor_filtragem
+
+def treino_aleatorio():
+    import random
+    import csv
+   
+    treino_selecao = ","
+    with open("teste/treinos.csv", "r") as treinos:
+        reader = csv.reader(treinos)
+        for linha , conteudo in enumerate (treinos):
+            if linha:
+                coluna = conteudo.strip() .split(treino_selecao)
+                print (coluna[0])
+
+
+
+
+        
+            
+            
+            
+            
+            
+    
+    
