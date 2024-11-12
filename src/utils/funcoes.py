@@ -135,6 +135,17 @@ def perguntar_valores_meta_atualizar():
         except Exception as e:
             print(f"Ocorreu um ERRO: {e}")
 
+# Função para receber o valor que será usado para deletar um treino
+def perguntar_treino_meta_deletar():
+    while True:
+        try:
+            nome_treino_meta_deletar = str(input("Insira o nome do treino que será deletado: "))
+            break
+        except ValueError:
+            print("Digite uma String")
+    return nome_treino_meta_deletar
+
+# Função para receber o valor que será usado para filtrar os treinos
 def pergunta_filtro():
     #Tratamento de Entrada
     while True:
