@@ -133,3 +133,14 @@ def perguntar_valores_meta_atualizar():
             print("Erro na entrada de dados. Por favor, insira os valores corretos.")
         except Exception as e:
             print(f"Ocorreu um ERRO: {e}")
+
+def pergunta_filtro():
+    #Tratamento de Entrada
+    while True:
+        try:
+            valor_filtragem = int(input("Insira um valor para usar como filtro"))
+            break
+        except ValueError:
+            print("Por favor insira um número")
+            
+    return valor_filtragem
