@@ -153,7 +153,7 @@ def pergunta_filtro():
 def treino_especifico():
     import csv
     treinos = []
-    with open("teste/treinos.csv", "r") as arquivo:
+    with open("data/treinos.csv", "r") as arquivo:
         reader = csv.reader(arquivo)
         next(reader)  
         for linha in reader:
