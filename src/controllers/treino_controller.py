@@ -83,30 +83,26 @@ def ler_treinos():
         for linha in reader:
             print(linha)
 
-# Função para filtrar treinos por tempo / distância
+# Função para filtrar os treinos
 def filtragem_distancia_tempo(valor_inserido):
-    treinos = [] # Cria uma lista que posteriormente será usada para mostrar filtragem
-    valor_encontrado = False # Check para saber se o valor foi encontrado
+    treinos = []  # Lista para armazenar os treinos filtrados
     try:
-        with open('data/metas.csv', mode='r') as file:
+        with open('data/treinos.csv', mode='r') as file:
             reader = csv.reader(file)
             for linha in reader:
-                if valor_inserido in linha: # Vai verificar se o valor inserido está presente nas linhas
+                if len(linha) > 0 and valor_inserido in linha:  # Verifica se o valor está presente na linha
                     treinos.append(linha)
-                    valor_encontrado = True
-                else:
-                    # Tratamento de ERRO
-                    print("Não existe algum treino com esse valor inserido")
-                    return
-    
-        # Tratamento de ERRO
-        if not valor_encontrado:
-            print(f"Valor [{valor_inserido}] não foi encontrado na planilha de [treinos.csv]")
-            return
 
-        print(treinos) # Print dos valores filtrados
+        # Verifica se algo foi encontrado
+        if treinos:
+            print("Treinos encontrados:")
+            for treino in treinos:
+                print(treino)
+        else:
+            print(f"Valor [{valor_inserido}] não foi encontrado na planilha de [treinos.csv]")
 
     except FileNotFoundError:
-        print(f"ERRO: Arquivo [treinos.csv] não encontrado")
+        print(f"ERRO: Arquivo [data/treinos.csv] não encontrado.")
     except Exception as e:
         print(f"Ocorreu um erro inesperado: {e}")
+

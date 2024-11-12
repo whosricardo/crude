@@ -1,6 +1,6 @@
 import os
 from utils.funcoes import *
-from controllers.treino_controller import adicionar_treino, ler_treinos, atualizar_treino
+from controllers.treino_controller import adicionar_treino, ler_treinos, atualizar_treino, filtragem_distancia_tempo
 from controllers.metas_controller import adicionar_meta, atualizar_meta, mostrar_metas
 
 def main():
@@ -27,8 +27,14 @@ def main():
     elif resposta_usuario == 4:
         print("Template")
 
-    # Menu Metas
+    # Filtrar Treinos
     elif resposta_usuario == 5:
+        valor_filtragem = pergunta_filtro()
+        valor_filtragem_converter = str(valor_filtragem)
+        filtragem_distancia_tempo(valor_filtragem_converter)
+
+    # Menu Metas
+    elif resposta_usuario == 6:
         #Clear Console
         os.system('cls' if os.name == 'nt' else 'clear')
 

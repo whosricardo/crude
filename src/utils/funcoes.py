@@ -8,7 +8,8 @@ def mostrar_menu():
     print(f"2 - Ler Treinos")
     print(f"3 - Atualizar Treino")
     print(f"4 - Deletar Treino")
-    print(f"5 - Área de [Metas]")
+    print(f"5 - Filtragem [Distância / Tempo]")
+    print(f"6 - Área de [Metas]")
 
 # Função para mostrar menu metas
 def mostrar_menu_metas():
@@ -21,13 +22,13 @@ def mostrar_menu_metas():
 def pergunta_usuario():
     while True:
         try:
-            input_usuario = int(input("Insira um numero (1 - 5): "))
+            input_usuario = int(input("Insira um numero (1 - 6): "))
 
-            if 1 <=input_usuario <= 5:
+            if 1 <=input_usuario <= 6:
                 return input_usuario
             # Tratamento de ERRO
             else:
-                print("Insira um valor dentro de [1 - 5]")
+                print("Insira um valor dentro de [1 - 6]")
         # Tratamento de ERRO
         except ValueError:
             print("Por favor insira um [Número]")
@@ -138,9 +139,9 @@ def pergunta_filtro():
     #Tratamento de Entrada
     while True:
         try:
-            valor_filtragem = int(input("Insira um valor para usar como filtro"))
+            valor_filtragem = float(input("Insira um valor para usar como filtro: "))
             break
         except ValueError:
             print("Por favor insira um número")
-            
+
     return valor_filtragem
