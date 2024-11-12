@@ -1,7 +1,7 @@
 import os
 from utils.funcoes import *
-from controllers.treino_controller import adicionar_treino, ler_treinos, atualizar_treino, filtragem_distancia_tempo
-from controllers.metas_controller import adicionar_meta, atualizar_meta, mostrar_metas
+from controllers.treino_controller import adicionar_treino, ler_treinos, atualizar_treino, filtragem_distancia_tempo, deletar_treino
+from controllers.metas_controller import adicionar_meta, atualizar_meta, mostrar_metas, deletar_meta
 
 def main():
     # Clear Console
@@ -25,7 +25,8 @@ def main():
 
     # Deletar Treinos
     elif resposta_usuario == 4:
-        print("Template")
+        nome_treino = perguntar_treino_meta_deletar()
+        deletar_treino(nome_treino)
 
     # Filtrar Treinos
     elif resposta_usuario == 5:
@@ -58,7 +59,8 @@ def main():
 
         # Deletar Metas
         elif resposta_usuario_metas == 4:
-            print("Template")
+            nome_meta = perguntar_treino_meta_deletar()
+            deletar_meta(nome_meta)
 
     return True
 

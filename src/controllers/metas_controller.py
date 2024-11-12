@@ -49,6 +49,37 @@ def atualizar_meta(nome_meta, novos_dados):
     except Exception as e:
         print(f"Ocorreu um erro inesperado: {e}")
 
+# Função para deletar o Treino
+def deletar_meta(nome_meta):
+    try:
+        metas = [] # Cria uma lista que posteriromente será usada para sobrescrever os valores no arquivo
+        metas_encontrado = False # Check para saber se o treino foi encontrado
+
+        with open('data/metas.csv', mode='r') as file:
+            reader = csv.reader(file)
+            for linha in reader:
+                if linha[0] != nome_meta: # Vai armazenar em uma lista todos os dados que não sejam o nome que não quer ser deletado
+                    metas.append(linha)
+                else:
+                    metas_encontrado = True # Foi encontrado o treino
+
+        # Tratamento de ERRO
+        if not metas_encontrado:
+            print(f"Meta [{nome_meta}] não encontrado")
+            return
+        
+        # Vai sobrescrever o arquivo atual com a lista treinos[] sem o dado que foi deletado
+        with open('data/metas.csv', mode='w') as file:
+            writer = csv.writer(file)
+            writer.writerows(metas)
+            print(f"Meta [{nome_meta}] foi deletado com sucesso!")
+
+    # Tratamento de ERRO
+    except FileNotFoundError:
+        print(f"Erro: Arquivo 'metas.csv' não foi encontrado")
+    except Exception as e:
+        print(f"Ocorreu um erro inesperado: {e}")
+
 # Print Metas Função
 def mostrar_metas():
     # Tratamento de ERRO
