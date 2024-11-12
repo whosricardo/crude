@@ -146,17 +146,25 @@ def pergunta_filtro():
 
     return valor_filtragem
 
+
+import random
+import csv
+
+def treino_especifico():
+    treinos = []
+    with open("teste/treinos.csv", "r") as arquivo:
+        reader = csv.reader(arquivo)
+        next(reader)  
+        for linha in reader:
+            treinos.append(linha[0])  
+    return treinos
+
 def treino_aleatorio():
-    import random
-    import csv
-   
-    treino_selecao = ","
-    with open("teste/treinos.csv", "r") as treinos:
-        reader = csv.reader(treinos)
-        for linha , conteudo in enumerate (treinos):
-            if linha:
-                coluna = conteudo.strip() .split(treino_selecao)
-                print (coluna[0])
+    treinos = treino_especifico()  
+    treinos_select = list(treinos)  
+    print(treinos_select)  
+
+treino_aleatorio()
 
 
 
