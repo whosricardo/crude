@@ -6,19 +6,29 @@ def convercao_int(valor):
 def mostrar_menu():
     print(f"1 - Adicionar Treino")
     print(f"2 - Ler Treinos")
-    print(f"3 - Atualizar Treinos")
+    print(f"3 - Atualizar Treino")
+    print(f"4 - Deletar Treino")
+    print(f"5 - Filtragem [Distância / Tempo]")
+    print(f"6 - Área de [Metas]")
+
+# Função para mostrar menu metas
+def mostrar_menu_metas():
+    print(f"1 - Adicionar Meta")
+    print(f"2 - Ler Metas")
+    print(f"3 - Atualizar Meta")
+    print(f"4 - Deletar Meta")
 
 # Função para perguntar ao usuário
 def pergunta_usuario():
     while True:
         try:
-            input_usuario = int(input("Insira um numero (1 - 3)"))
+            input_usuario = int(input("Insira um numero (1 - 6): "))
 
-            if 1 <=input_usuario <= 3:
+            if 1 <=input_usuario <= 6:
                 return input_usuario
             # Tratamento de ERRO
             else:
-                print("Insira um valor dentro de [1 - 3]")
+                print("Insira um valor dentro de [1 - 6]")
         # Tratamento de ERRO
         except ValueError:
             print("Por favor insira um [Número]")
@@ -31,7 +41,7 @@ def perguntar_valores_adicionar():
         try:
             nome = input("Insira o nome do treino / competição: ")
             data = input("Insira a data do treino (DD/MM/AAAA): ")
-            distancia_percorrida = float(input("Insira a distância percorrida (em km): "))
+            distancia_percorrida = float(input("Insira a distância percorrida (em KM): "))
             tempo = input("Insira o tempo gasto (formato HH:MM:SS): ")
             localizacao = input("Insira a localização do treino: ")
             condicoes_climaticas = input("Descreva as condições climáticas: ")
@@ -78,3 +88,60 @@ def perguntar_valores_atualizar():
             print("Erro na entrada de dados. Por favor, insira os valores corretos.")
         except Exception as e:
             print(f"Ocorreu um ERRO: {e}")
+
+# Função para armazenar os valores para posteriormente usar no controlador adicionar_meta
+def perguntar_valores_meta_adicionar():
+    # Tratamento de Entrada
+    while True:
+        try:
+            nome = input("Insira o nome da meta: ")
+            distancia = float(input("Insira a distância desejada da meta (em KM): "))
+            tempo = input("Insira o tempo desejado para a meta: ")
+
+            # Dicionário para posteriormente ser usado como entrada nos paramêtros
+            if distancia >= 0 and nome and tempo:
+                return {
+                    "nome" : nome,
+                    "distancia" : distancia,
+                    "tempo" : tempo
+                }
+            #Tratamento de Erro
+            else:
+                print("Por favor, preencha os campos corretamente")
+        # Tratamento de Erro
+        except ValueError:
+            print("Erro na entrada de dados. Por favor, insira os valores corretos.")
+        except Exception as e:
+            print(f"Ocorreu um ERRO: {e}")
+
+def perguntar_valores_meta_atualizar():
+    # Tratamento de Entrada
+    while True:
+        try:
+            nome = input("Insira o nome da meta que vai ser atualizada: ")
+            nome_novo = input("Insira o nome da meta: ")
+            distancia_novo = float(input("Insira a distância desejada da meta (em KM): "))
+            tempo_novo = input("Insira o tempo desejado para a meta: ")
+
+            if distancia_novo >= 0 and nome_novo and tempo_novo:
+                # Retorna o nome do treino a ser atualizado e uma lista com os novos dados 
+                return nome, [nome_novo, distancia_novo, tempo_novo]
+            # Tratamento de ERRO
+            else:
+                print("Por favor, preencha os campos corretamente")
+        # Tratamento de ERRO
+        except ValueError:
+            print("Erro na entrada de dados. Por favor, insira os valores corretos.")
+        except Exception as e:
+            print(f"Ocorreu um ERRO: {e}")
+
+def pergunta_filtro():
+    #Tratamento de Entrada
+    while True:
+        try:
+            valor_filtragem = float(input("Insira um valor para usar como filtro: "))
+            break
+        except ValueError:
+            print("Por favor insira um número")
+
+    return valor_filtragem
