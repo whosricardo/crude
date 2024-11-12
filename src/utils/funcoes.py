@@ -147,10 +147,11 @@ def pergunta_filtro():
     return valor_filtragem
 
 
-import random
-import csv
+
+
 
 def treino_especifico():
+    import csv
     treinos = []
     with open("teste/treinos.csv", "r") as arquivo:
         reader = csv.reader(arquivo)
@@ -160,9 +161,12 @@ def treino_especifico():
     return treinos
 
 def treino_aleatorio():
+    import random
     treinos = treino_especifico()  
     treinos_select = list(treinos)  
-    print(treinos_select)  
+    
+    treino_random = random.choice(treinos_select)
+    print (f" O melhor treino para você hoje é o : {treino_random}")
 
 treino_aleatorio()
 
