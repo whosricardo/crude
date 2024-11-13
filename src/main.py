@@ -60,6 +60,9 @@ def main():
         elif resposta_usuario_metas == 4:
             print("Template")
 
+    elif resposta_usuario == 7:
+        treino_aleatorio()
+    
     return True
 
 if __name__ == '__main__':

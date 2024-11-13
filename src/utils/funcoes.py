@@ -10,6 +10,7 @@ def mostrar_menu():
     print(f"4 - Deletar Treino")
     print(f"5 - Filtragem [Distância / Tempo]")
     print(f"6 - Área de [Metas]")
+    print(f"7 - Sugestão de treino aleatório")
 
 # Função para mostrar menu metas
 def mostrar_menu_metas():
@@ -22,13 +23,13 @@ def mostrar_menu_metas():
 def pergunta_usuario():
     while True:
         try:
-            input_usuario = int(input("Insira um numero (1 - 6): "))
+            input_usuario = int(input("Insira um numero (1 - 7): "))
 
-            if 1 <=input_usuario <= 6:
+            if 1 <=input_usuario <= 7:
                 return input_usuario
             # Tratamento de ERRO
             else:
-                print("Insira um valor dentro de [1 - 6]")
+                print("Insira um valor dentro de [1 - 7]")
         # Tratamento de ERRO
         except ValueError:
             print("Por favor insira um [Número]")
@@ -166,9 +167,9 @@ def treino_aleatorio():
     treinos_select = list(treinos)  
     
     treino_random = random.choice(treinos_select)
-    print (f" O melhor treino para você hoje é o : {treino_random}")
+    print (f" O melhor treino para você hoje é o {treino_random}. Por favor consultar no menu principal")
 
-treino_aleatorio()
+
 
 
 
