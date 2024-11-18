@@ -62,6 +62,9 @@ def main():
             nome_meta = perguntar_treino_meta_deletar()
             deletar_meta(nome_meta)
 
+    elif resposta_usuario == 7:
+        treino_aleatorio()
+    
     return True
 
 if __name__ == '__main__':
