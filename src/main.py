@@ -63,6 +63,8 @@ def main():
             if resposta_usuario_metas == 1:
                 dados_meta = perguntar_valores_meta_adicionar()
                 adicionar_meta(**dados_meta)
+                print(f"Meta adicionada com sucesso!")
+                mensagem_aleatoria()
 
             # Ler Metas
             elif resposta_usuario_metas == 2:
