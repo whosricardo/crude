@@ -4,67 +4,86 @@ from controllers.treino_controller import adicionar_treino, ler_treinos, atualiz
 from controllers.metas_controller import adicionar_meta, atualizar_meta, mostrar_metas, deletar_meta
 
 def main():
-    # Clear Console
-    os.system('cls' if os.name == 'nt' else 'clear')
-    mostrar_menu()
-    resposta_usuario = pergunta_usuario()
+    while True:
+        mostrar_menu()
+        resposta_usuario = pergunta_usuario()
 
-    # Adicionar Treinos
-    if resposta_usuario == 1:
-        dados_treino = perguntar_valores_adicionar()
-        adicionar_treino(**dados_treino)
+        # Adicionar Treinos
+        if resposta_usuario == 1:
+            # Clear Console
+            os.system('cls' if os.name == 'nt' else 'clear')
+            
+            dados_treino = perguntar_valores_adicionar()
+            adicionar_treino(**dados_treino)
 
-    # Ler Treinos
-    elif resposta_usuario == 2:
-        ler_treinos()
+        # Ler Treinos
+        elif resposta_usuario == 2:
+            # Clear Console
+            os.system('cls' if os.name == 'nt' else 'clear')
 
-    # Atualizar Treinos
-    elif resposta_usuario == 3:
-        nome_treino, novos_dados = perguntar_valores_atualizar()
-        atualizar_treino(nome_treino, novos_dados)
+            ler_treinos()
 
-    # Deletar Treinos
-    elif resposta_usuario == 4:
-        nome_treino = perguntar_treino_meta_deletar()
-        deletar_treino(nome_treino)
+        # Atualizar Treinos
+        elif resposta_usuario == 3:
+            # Clear Console
+            os.system('cls' if os.name == 'nt' else 'clear')
 
-    # Filtrar Treinos
-    elif resposta_usuario == 5:
-        valor_filtragem = pergunta_filtro()
-        valor_filtragem_converter = str(valor_filtragem)
-        filtragem_distancia_tempo(valor_filtragem_converter)
+            nome_treino, novos_dados = perguntar_valores_atualizar()
+            atualizar_treino(nome_treino, novos_dados)
 
-    # Menu Metas
-    elif resposta_usuario == 6:
-        #Clear Console
-        os.system('cls' if os.name == 'nt' else 'clear')
+        # Deletar Treinos
+        elif resposta_usuario == 4:
+            # Clear Console
+            os.system('cls' if os.name == 'nt' else 'clear')
 
-        mostrar_menu_metas()
+            nome_treino = perguntar_treino_meta_deletar()
+            deletar_treino(nome_treino)
 
-        resposta_usuario_metas = pergunta_usuario()
+        # Filtrar Treinos
+        elif resposta_usuario == 5:
+            # Clear Console
+            os.system('cls' if os.name == 'nt' else 'clear')
 
-        # Adicionar Metas
-        if resposta_usuario_metas == 1:
-            dados_meta = perguntar_valores_meta_adicionar()
-            adicionar_meta(**dados_meta)
+            valor_filtragem = pergunta_filtro()
+            valor_filtragem_converter = str(valor_filtragem)
+            filtragem_distancia_tempo(valor_filtragem_converter)
 
-        # Ler Metas
-        elif resposta_usuario_metas == 2:
-            mostrar_metas()
+        # Menu Metas
+        elif resposta_usuario == 6:
+            #Clear Console
+            os.system('cls' if os.name == 'nt' else 'clear')
 
-        # Atualizar Metas
-        elif resposta_usuario_metas == 3:
-            nome_meta, novos_dados_meta = perguntar_valores_meta_atualizar()
-            atualizar_meta(nome_meta, novos_dados_meta)
+            mostrar_menu_metas()
 
-        # Deletar Metas
-        elif resposta_usuario_metas == 4:
-            nome_meta = perguntar_treino_meta_deletar()
-            deletar_meta(nome_meta)
+            resposta_usuario_metas = pergunta_usuario()
 
-    elif resposta_usuario == 7:
-        treino_aleatorio()
-    
+            # Adicionar Metas
+            if resposta_usuario_metas == 1:
+                dados_meta = perguntar_valores_meta_adicionar()
+                adicionar_meta(**dados_meta)
+
+            # Ler Metas
+            elif resposta_usuario_metas == 2:
+                mostrar_metas()
+
+            # Atualizar Metas
+            elif resposta_usuario_metas == 3:
+                nome_meta, novos_dados_meta = perguntar_valores_meta_atualizar()
+                atualizar_meta(nome_meta, novos_dados_meta)
+
+            # Deletar Metas
+            elif resposta_usuario_metas == 4:
+                nome_meta = perguntar_treino_meta_deletar()
+                deletar_meta(nome_meta)
+
+        # Treino Aleatorio
+        elif resposta_usuario == 7:
+            treino_aleatorio()
+
+        # Sair Programa
+        elif resposta_usuario == 8:
+            break
+
     return True
 
 if __name__ == '__main__':

@@ -11,6 +11,7 @@ def mostrar_menu():
     print(f"5 - Filtragem [Distância / Tempo]")
     print(f"6 - Área de [Metas]")
     print(f"7 - Sugestão de treino aleatório")
+    print(f"8 - Sair")
 
 # Função para mostrar menu metas
 def mostrar_menu_metas():
@@ -23,13 +24,13 @@ def mostrar_menu_metas():
 def pergunta_usuario():
     while True:
         try:
-            input_usuario = int(input("Insira um numero (1 - 7): "))
+            input_usuario = int(input("Insira um numero (1 - 8): "))
 
-            if 1 <=input_usuario <= 7:
+            if 1 <=input_usuario <= 8:
                 return input_usuario
             # Tratamento de ERRO
             else:
-                print("Insira um valor dentro de [1 - 7]")
+                print("Insira um valor dentro de [1 - 8]")
         # Tratamento de ERRO
         except ValueError:
             print("Por favor insira um [Número]")
@@ -158,10 +159,7 @@ def pergunta_filtro():
 
     return valor_filtragem
 
-
-
-
-
+# Função que será utilizada para o treino aleatorio
 def treino_especifico():
     import csv
     treinos = []
@@ -172,6 +170,7 @@ def treino_especifico():
             treinos.append(linha[0])  
     return treinos
 
+# Função treino Aleatorio
 def treino_aleatorio():
     import random
     treinos = treino_especifico()  
