@@ -12,9 +12,11 @@ def main():
         if resposta_usuario == 1:
             # Clear Console
             os.system('cls' if os.name == 'nt' else 'clear')
-            
+
             dados_treino = perguntar_valores_adicionar()
             adicionar_treino(**dados_treino)
+            print("Treino adicionado com sucesso!")
+            mensagem_aleatoria()
 
         # Ler Treinos
         elif resposta_usuario == 2:

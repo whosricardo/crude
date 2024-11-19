@@ -159,6 +159,21 @@ def pergunta_filtro():
 
     return valor_filtragem
 
+def mensagem_aleatoria():
+    import random
+
+    mensagens = [
+        "Ótimo trabalho! Cada passo te deixa mais perto do seu objetivo!",
+        "Continue se superando! Você está no caminho certo!",
+        "Você é mais forte do que pensa. Vamos para o próximo desafio!",
+        "Lembre-se: cada quilômetro é uma vitória!",
+        "A consistência é o segredo do sucesso. Continue assim!"
+    ]
+
+    mensagem_escolhida = random.choice(mensagens)
+
+    print(f'"{mensagem_escolhida}"')
+
 # Função que será utilizada para o treino aleatorio
 def treino_especifico():
     import csv
