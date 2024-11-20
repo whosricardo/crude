@@ -17,6 +17,14 @@ Este projeto foi criado para ajudar atletas a gerenciar seus treinos e competiç
 5. **Metas e Desafios**: Configurar metas mensais e acompanhar o progresso.
 6. **Sugestões de Treinos Aleatórios**: Varie sua rotina com sugestões baseadas no histórico.
 7. **Mensagem de Motivação**: Uma mensagem inspiradora é exibida a cada registro de treino.
+   
+---
+
+## **Fluxograma**
+
+Este é o Fluxograma para as funcionalidades do Projeto.
+
+![Fluxograma do Projeto](/assets/fluxograma.png)
 
 ---
 
