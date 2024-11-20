@@ -98,9 +98,34 @@ def perguntar_valores_atualizar():
         try:
             nome = input("Insira o nome do treino que vai ser atualizado: ")
             nome_novos = input("Insira o nome do treino / competição: ")
-            data_novos = input("Insira a data do treino (DD/MM/AAAA): ")
+            # Validação básica da data
+            while True:
+                data_novos = input("Insira a data do treino (DD/MM/AAAA): ")
+                if (
+                    len(data_novos) == 10 and
+                    data_novos[2] == '/' and data_novos[5] == '/' and
+                    data_novos[:2].isdigit() and data_novos[3:5].isdigit() and data_novos[6:].isdigit()
+                ):
+                    dia, mes, ano = map(int, data_novos.split('/'))
+                    if 1 <= dia <= 31 and 1 <= mes <= 12 and ano > 0:
+                        break
+                print("Data inválida! Use o formato DD/MM/AAAA e insira valores reais.")
+
             distancia_percorrida_novos = float(input("Insira a distância percorrida (em km): "))
-            tempo_novos = input("Insira o tempo gasto (formato HH:MM:SS): ")
+
+            # Validação básica do tempo
+            while True:
+                tempo_novos = input("Insira o tempo gasto (formato HH:MM:SS): ")
+                if (
+                    len(tempo_novos) == 8 and
+                    tempo_novos[2] == ':' and tempo_novos[5] == ':' and
+                    tempo_novos[:2].isdigit() and tempo_novos[3:5].isdigit() and tempo_novos[6:].isdigit()
+                ):
+                    horas, minutos, segundos = map(int, tempo_novos.split(':'))
+                    if 0 <= horas <= 23 and 0 <= minutos <= 59 and 0 <= segundos <= 59:
+                        break
+                print("Tempo inválido! Use o formato HH:MM:SS e insira valores reais.")
+
             localizacao_novos = input("Insira a localização do treino: ")
             condicoes_climaticas_novos = input("Descreva as condições climáticas: ")
 
