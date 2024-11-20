@@ -42,26 +42,51 @@ def perguntar_valores_adicionar():
     while True:
         try:
             nome = input("Insira o nome do treino / competição: ")
-            data = input("Insira a data do treino (DD/MM/AAAA): ")
+
+            # Validação básica da data
+            while True:
+                data = input("Insira a data do treino (DD/MM/AAAA): ")
+                if (
+                    len(data) == 10 and
+                    data[2] == '/' and data[5] == '/' and
+                    data[:2].isdigit() and data[3:5].isdigit() and data[6:].isdigit()
+                ):
+                    dia, mes, ano = map(int, data.split('/'))
+                    if 1 <= dia <= 31 and 1 <= mes <= 12 and ano > 0:
+                        break
+                print("Data inválida! Use o formato DD/MM/AAAA e insira valores reais.")
+
             distancia_percorrida = float(input("Insira a distância percorrida (em KM): "))
-            tempo = input("Insira o tempo gasto (formato HH:MM:SS): ")
+
+            # Validação básica do tempo
+            while True:
+                tempo = input("Insira o tempo gasto (formato HH:MM:SS): ")
+                if (
+                    len(tempo) == 8 and
+                    tempo[2] == ':' and tempo[5] == ':' and
+                    tempo[:2].isdigit() and tempo[3:5].isdigit() and tempo[6:].isdigit()
+                ):
+                    horas, minutos, segundos = map(int, tempo.split(':'))
+                    if 0 <= horas <= 23 and 0 <= minutos <= 59 and 0 <= segundos <= 59:
+                        break
+                print("Tempo inválido! Use o formato HH:MM:SS e insira valores reais.")
+
             localizacao = input("Insira a localização do treino: ")
             condicoes_climaticas = input("Descreva as condições climáticas: ")
 
-            # Cria um dicionario que posteriormente será usado com a função adicionar que recebe os parámetros
-            if data and distancia_percorrida >= 0 and nome and tempo and localizacao and condicoes_climaticas:
+            # Cria um dicionário que posteriormente será usado com a função adicionar que recebe os parâmetros
+            if distancia_percorrida >= 0 and nome and localizacao and condicoes_climaticas:
                 return {
-                    "nome" : nome,
-                    "data" : data,
-                    "distancia_percorrida" : distancia_percorrida,
-                    "tempo" : tempo,
-                    "localizacao" : localizacao,
-                    "condicoes_climaticas" : condicoes_climaticas
+                    "nome": nome,
+                    "data": data,
+                    "distancia_percorrida": distancia_percorrida,
+                    "tempo": tempo,
+                    "localizacao": localizacao,
+                    "condicoes_climaticas": condicoes_climaticas
                 }
             else:
                 # Tratamento de ERRO
-                print("Por favor, preencha os campos corretamente")
-        # Tratamento de ERRO
+                print("Por favor, preencha os campos corretamente.")
         except ValueError:
             print("Erro na entrada de dados. Por favor, insira os valores corretos.")
         except Exception as e:
@@ -193,17 +218,3 @@ def treino_aleatorio():
     
     treino_random = random.choice(treinos_select)
     print (f" O melhor treino para você hoje é o {treino_random}. Por favor consultar no menu principal")
-
-
-
-
-
-
-        
-            
-            
-            
-            
-            
-    
-    
